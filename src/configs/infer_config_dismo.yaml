@@ -24,7 +24,7 @@ inference:
   output_dir: ../inference_outputs
 
   data_path: ../data
-  metadata_path: prompt/objaverse_spiral_video_train_paired_local100.csv
+  metadata_path: ../data/test.csv
   object_image_names: "front,left,back,right"
 
   num_threads: 1

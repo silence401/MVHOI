@@ -1,0 +1,4 @@
+video_id,obj_name,video_path,obj_mask_path,motion_path,motion_mask_path,first_frame_path
+case000,multi_views/case000,clips/case000.mp4,masks/case000.mp4,motion/case000.mp4,motion_masks/case000.mp4,first_frames/case000.jpg
+case001,multi_views/case001,clips/case001.mp4,masks/case001.mp4,motion/case001.mp4,motion_masks/case001.mp4,first_frames/case001.jpg
+case002,multi_views/case002,clips/case002.mp4,masks/case002.mp4,motion/case002.mp4,motion_masks/case002.mp4,first_frames/case002.jpg
