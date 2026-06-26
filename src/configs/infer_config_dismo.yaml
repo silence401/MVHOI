@@ -1,0 +1,40 @@
+model:
+  model_name: mvhoi3d-large
+  class_name: model.vggt.models.RnG_object.VGGT4LVSM
+
+  image_tokenizer:
+    image_size: 266
+    patch_size: 14
+    in_channels: 9
+
+  target_pose_tokenizer:
+    image_size: 266
+    patch_size: 14
+    in_channels: 6
+
+  object_motion_embedder:
+    pretrained_path: ../ckpts/motion_extractor_large.pt
+    motion_dim: 2048
+    image_size: 256
+
+unposed: false
+
+inference:
+  checkpoint_path: ../ckpts/ckpt_0000000000103000.pt
+  output_dir: ../inference_outputs
+
+  data_path: ../data
+  metadata_path: prompt/objaverse_spiral_video_train_paired_local100.csv
+  object_image_names: "front,left,back,right"
+
+  num_threads: 1
+
+  frame_step: 1
+  skip_frames: 0
+  num_frames: 20
+  image_size: 266
+
+  amp_dtype: bf16
+  use_amp: true
+  use_bf16: false
+  use_tf32: true

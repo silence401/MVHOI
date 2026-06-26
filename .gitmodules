@@ -1,0 +1,3 @@
+[submodule "thirdparty/DisMo"]
+	path = thirdparty/DisMo
+	url = https://github.com/CompVis/DisMo

@@ -1,0 +1,48 @@
+[workspace]
+name = "mvhoi"
+version = "0.1.0"
+channels = [
+  "pytorch",
+  "conda-forge",
+  "defaults",
+]
+platforms = ["linux-64"]
+
+[pypi-options]
+extra-index-urls = ["https://download.pytorch.org/whl/cu124"]
+
+[dependencies]
+python = ">=3.10,<3.12"
+numpy = "2.2.6.*"
+imageio = ">=2.31"
+ffmpeg = ">=6"
+scipy = "1.15.3.*"
+pandas = "2.3.3.*"
+ninja = "1.13.0.*"
+pillow = "*"
+
+[pypi-dependencies]
+decord = "==0.6"
+opencv-python-headless = ">=4.13.0.92, <5"
+tqdm = ">=4.66"
+rich = ">=13"
+einops = ">=0.7"
+omegaconf = ">=2.3"
+easydict = ">=1.13"
+addict = ">=2.4"
+huggingface_hub = ">=0.22"
+safetensors = ">=0.4"
+timm = ">=0.9"
+evo = ">=1.29"
+torch = "==2.6.0+cu124"
+torchvision = "==0.21.0+cu124"
+
+[activation.env]
+OMP_NUM_THREADS = "1"
+TORCH_CUDA_ARCH_LIST = "9.0"
+
+[tasks]
+infer = { cmd = "python -m infer --config configs/infer_config_dismo.yaml", cwd = "src" }
+infer-video = { cmd = "python -m infer_video --config configs/infer_config_dismo.yaml", cwd = "src" }
+infer-help = { cmd = "python -m infer --help", cwd = "src" }
+check-config = { cmd = "python -c \"from utils.mvhoi_runtime import load_mvhoi_config; cfg=load_mvhoi_config('configs/infer_config_dismo.yaml'); print(cfg.inference.metadata_path); print(cfg.inference.data_path)\"", cwd = "src" }
